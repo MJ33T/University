@@ -29,3 +29,5 @@ Route::view('/login', "login");
 
 Route::post('/login', [UserController::class, 'login']);
 
+Route::view('/master', "master");
+
