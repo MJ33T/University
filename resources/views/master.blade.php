@@ -74,5 +74,9 @@
         color: #869099;
         padding: 1rem;
     }
+    .d-block{
+      margin-left: 10px;
+      font-size: 1.10em;
+    }
 </style>
 </html>
