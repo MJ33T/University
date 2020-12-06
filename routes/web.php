@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,8 @@ Route::post('/login', [UserController::class, 'login']);
 Route::view('/add_student', 'add_student');
 
 Route::post('add_student', [StudentController::class, 'addStudent']);
+
+Route::view('/add_teacher', 'add_teacher');
+
+Route::post('add_teacher', [TeacherController::class, 'addTeacher']);
 
