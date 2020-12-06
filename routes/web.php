@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,8 @@ Route::view('/login', "login");
 Route::post('/login', [UserController::class, 'login']);
 
 // Route::view('/master', "master");
+
+Route::view('/add_student', 'add_student');
+
+Route::post('add_student', [StudentController::class, 'addStudent']);
 
