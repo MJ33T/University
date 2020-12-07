@@ -41,3 +41,11 @@ Route::view('/add_teacher', 'add_teacher');
 
 Route::post('add_teacher', [TeacherController::class, 'addTeacher']);
 
+Route::get('student_list', [StudentController::class, 'studentList']);
+
+Route::get('teacher_list', [TeacherController::class, 'teacherList']);
+
+Route::get('detail_student/{id}', [StudentController::class, 'detailStudent']);
+
+Route::get('detail_teacher/{id}', [TeacherController::class, 'detail']);
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use \Crypt;
 
 class TeacherController extends Controller
 {
@@ -24,5 +25,16 @@ class TeacherController extends Controller
         else{
             return redirect('/login');
         }
+    }
+
+    function teacherList(){
+        $teachers = Teacher::all();
+        return view('teacher_list', ['teachers'=> $teachers]);
+    }
+
+    function detail($id){
+        $tid = \Crypt::decrypt($id);
+        $teacher = Teacher::find($tid);
+        return view('detail_teacher',['teacher'=>$teacher]);
     }
 }
