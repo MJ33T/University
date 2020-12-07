@@ -66,4 +66,7 @@ class StudentController extends Controller
         $data->delete();
         return redirect('student_list');
     }
+    static function studentCount(){
+        return Student::select('id')->count(); 
+    }
 }

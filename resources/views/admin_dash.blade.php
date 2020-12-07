@@ -1,3 +1,11 @@
+<?php 
+  use App\Http\Controllers\StudentController;
+  use App\Http\Controllers\TeacherController;
+  $total_student = StudentController::studentCount();
+  $total_teacher = TeacherController::teacherCount();
+
+  $total = $total_student + $total_teacher;
+?>
 @extends('master')
 @section('master')
 
@@ -30,7 +38,7 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$total_student}}</h3>
               <p>Total Students</p>
             </div>
             <div class="icon">
@@ -44,7 +52,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>50</h3>
+              <h3>{{$total_teacher}}</h3>
               <p>Total Teachers</p>
             </div>
             <div class="icon">
@@ -58,7 +66,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$total}}</h3>
               <p>User Registrations</p>
             </div>
             <div class="icon">

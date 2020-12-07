@@ -64,4 +64,8 @@ class TeacherController extends Controller
         $teacher->delete();
         return redirect('teacher_list'); 
     }
+
+    static function teacherCount(){
+        return Teacher::select('id')->count(); 
+    }
 }

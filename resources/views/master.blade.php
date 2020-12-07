@@ -69,6 +69,7 @@
 </body>
 <style>
     .master-footer{
+      
         background-color: #fff;
         border-top: 1px solid #dee2e6;
         color: #869099;
