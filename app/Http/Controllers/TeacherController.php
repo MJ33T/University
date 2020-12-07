@@ -10,17 +10,17 @@ class TeacherController extends Controller
 {
     function addTeacher(Request $req){
         if($req->session()->has('user')){
-            $student = new Teacher;
-            $student->fname = $req->fname;
-            $student->lname = $req->lname;
-            $student->tid = $req->tid;
-            $student->email = $req->email;
-            $student->paddress = $req->paddress;
-            $student->peraddress = $req->peraddress;
-            $student->gender = $req->gender;
-            $student->dob = $req->dob;
-            $student->save();
-            return redirect('/admin_dash');
+            $teacher = new Teacher;
+            $teacher->fname = $req->fname;
+            $teacher->lname = $req->lname;
+            $teacher->tid = $req->tid;
+            $teacher->email = $req->email;
+            $teacher->paddress = $req->paddress;
+            $teacher->peraddress = $req->peraddress;
+            $teacher->gender = $req->gender;
+            $teacher->dob = $req->dob;
+            $teacher->save();
+            return redirect('/teacher_list');
         }
         else{
             return redirect('/login');
@@ -36,5 +36,32 @@ class TeacherController extends Controller
         $tid = \Crypt::decrypt($id);
         $teacher = Teacher::find($tid);
         return view('detail_teacher',['teacher'=>$teacher]);
+    }
+
+    function updateShow($id){
+        $tid = \Crypt::decrypt($id);
+        $teacher = Teacher::find($tid);
+        return view('update_teacher',['teacher'=>$teacher]);
+    }
+
+    function update(Request $req){
+        $teacher = Teacher::find($req->id);
+        $teacher->fname = $req->fname;
+        $teacher->lname = $req->lname;
+        $teacher->tid = $req->tid;
+        $teacher->email = $req->email;
+        $teacher->paddress = $req->paddress;
+        $teacher->peraddress = $req->peraddress;
+        $teacher->gender = $req->gender;
+        $teacher->dob = $req->dob;
+        $teacher->save();
+        return redirect('/teacher_list');   
+    }
+
+    function delete($id){
+        $tid = \Crypt::decrypt($id);
+        $teacher = Teacher::find($tid);
+        $teacher->delete();
+        return redirect('teacher_list'); 
     }
 }

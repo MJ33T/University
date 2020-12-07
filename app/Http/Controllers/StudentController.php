@@ -20,7 +20,7 @@ class StudentController extends Controller
             $student->gender = $req->gender;
             $student->dob = $req->dob;
             $student->save();
-            return redirect('/admin_dash');
+            return redirect('/student_list');
         }
         else{
             return redirect('/login');
