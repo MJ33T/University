@@ -49,3 +49,9 @@ Route::get('detail_student/{id}', [StudentController::class, 'detailStudent']);
 
 Route::get('detail_teacher/{id}', [TeacherController::class, 'detail']);
 
+Route::get('detail_student/update_student/{id}', [StudentController::class, 'updateShow']);
+
+Route::post('update_student', [StudentController::class, 'update']);
+
+Route::get('delete_student/{id}', [StudentController::class, 'delete']);
+
