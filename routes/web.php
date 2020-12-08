@@ -62,7 +62,11 @@ Route::post('update_teacher', [TeacherController::class, 'update']);
 
 Route::get('delete_teacher/{id}', [TeacherController::class, 'delete']);
 
-Route::get('add_course', [CourseController::class, 'view']);
+Route::view('add_course', 'add_course');
 
 Route::post('add_course', [CourseController::class, 'addCourse']);
+
+Route::get('course_list', [CourseController::class, 'courseList']);
+
+Route::get('delete_course/{id}', [CourseController::class, 'delete']);
 

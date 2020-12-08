@@ -215,7 +215,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="course_list" class="nav-link">
                   <i class="far fa-edit nav-icon"></i>
                   <p>Course List</p>
                 </a>
