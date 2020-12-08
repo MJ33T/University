@@ -10,6 +10,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Add New Student</h3>
+                            <a href="/admin_dash"><button class="float-right btn btn-warning">Dashboard</button></a> 
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->

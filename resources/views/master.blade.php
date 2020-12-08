@@ -67,6 +67,17 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script> 
 </body>
+<script>
+//   $("#1").change(function(){
+//     if($(this).val()==3){
+//       $("#s2").show();
+//       $('#l2').show();
+//     }else{
+//       $("#s2").hide();
+//       $('#l2').hide();
+//     }
+// });
+</script>
 <style>
     .master-footer{
       

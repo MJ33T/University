@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,8 @@ Route::get('detail_teacher/update_teacher/{id}', [TeacherController::class, 'upd
 Route::post('update_teacher', [TeacherController::class, 'update']);
 
 Route::get('delete_teacher/{id}', [TeacherController::class, 'delete']);
+
+Route::get('add_course', [CourseController::class, 'view']);
+
+Route::post('add_course', [CourseController::class, 'addCourse']);
 
