@@ -1,1 +1,4 @@
- <h1>Teacher Dashboard</h1>
+@extends('stumaster')
+@section('content')
+
+@endsection

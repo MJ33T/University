@@ -27,6 +27,16 @@ Route::get('/logout', function () {
     return redirect('login');
 });
 
+Route::get('/logout_teacher', function () {
+    Session::forget('user');
+    return redirect('teacher_student_login');
+});
+
+Route::get('/logout_student', function () {
+    Session::forget('user');
+    return redirect('teacher_student_login');
+});
+
 Route::view('/admin_dash', 'admin_dash');
 
 Route::view('/login', "login");

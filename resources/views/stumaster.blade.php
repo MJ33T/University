@@ -28,9 +28,8 @@
   <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 </head>
 {{-- <body> --}}
-    {{View::make('sidebar')}}
-         @yield('master')  
-
+    {{View::make('stusidebar')}}
+         @yield('content')  
     {{View::make('footer')}}
     
 <!-- jQuery -->
