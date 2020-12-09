@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Teacher;
+use App\Models\Login;
 use \Crypt;
 
 class TeacherController extends Controller
@@ -20,11 +22,18 @@ class TeacherController extends Controller
             $teacher->gender = $req->gender;
             $teacher->dob = $req->dob;
             $teacher->save();
+
+            $login = new Login;
+            $login->user = $req->email;
+            $login->password = Hash::make($req->tid);
+            $login->category = "teacher";
+            $login->save();
             return redirect('/teacher_list');
         }
         else{
             return redirect('/login');
         }
+
     }
 
     function teacherList(){
@@ -67,5 +76,9 @@ class TeacherController extends Controller
 
     static function teacherCount(){
         return Teacher::select('id')->count(); 
+    }
+
+    function teacherDash(){
+        return view('teacher_dash');
     }
 }

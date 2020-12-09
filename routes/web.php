@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::get('/logout', function () {
 Route::view('/admin_dash', 'admin_dash');
 
 Route::view('/login', "login");
+
+Route::view('/teacher_student_login', 'teacher_student_login');
+
+Route::post('/teacher_student_login', [LoginController::class, 'login']);
 
 Route::post('/login', [UserController::class, 'login']);
 
@@ -69,4 +74,8 @@ Route::post('add_course', [CourseController::class, 'addCourse']);
 Route::get('course_list', [CourseController::class, 'courseList']);
 
 Route::get('delete_course/{id}', [CourseController::class, 'delete']);
+
+Route::get('student_dash', [StudentController::class, 'studentDash']);
+
+Route::get('teacher_dash', [TeacherController::class, 'teacherDash']);
 
