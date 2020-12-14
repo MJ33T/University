@@ -1,8 +1,10 @@
 <?php 
   use App\Http\Controllers\StudentController;
   use App\Http\Controllers\TeacherController;
+  use App\Http\Controllers\CourseController;
   $total_student = StudentController::studentCount();
   $total_teacher = TeacherController::teacherCount();
+  $total_course = CourseController::courseCount();
 
   $total = $total_student + $total_teacher;
 ?>
@@ -66,13 +68,13 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>{{$total}}</h3>
-              <p>User Registrations</p>
+              <h3>{{$total_course}}</h3>
+              <p>Total Courses</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fas fa-book"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/course_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

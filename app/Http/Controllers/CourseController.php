@@ -15,6 +15,7 @@ class CourseController extends Controller
             $course->cname = $req->cname;
             $course->department = $req->department;
             $course->semister = $req->semister;
+            $course->ccode = $req->ccode;
             $course->save();
             return redirect('/course_list');
         }else{
@@ -32,5 +33,9 @@ class CourseController extends Controller
         $course = Course::find($cid);
         $course->delete();
         return redirect('course_list');
+    }
+
+    static function courseCount(){
+        return Course::select('id')->count();
     }
 }

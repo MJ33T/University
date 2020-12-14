@@ -89,3 +89,9 @@ Route::get('student_dash', [StudentController::class, 'studentDash']);
 
 Route::get('teacher_dash', [TeacherController::class, 'teacherDash']);
 
+Route::get('teacher_course_select', [TeacherController::class, 'select_course']);
+
+Route::post('teacher_course_select', [TeacherController::class, 'selected_course']);
+
+Route::get('select_course_list', [TeacherController::class, 'courseList']);
+

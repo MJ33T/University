@@ -1,4 +1,4 @@
-@extends('stumaster')
+@extends('tecmaster')
 @section('content')
 
 @endsection

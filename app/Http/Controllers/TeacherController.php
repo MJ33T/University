@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Models\Teacher;
 use App\Models\Login;
+use App\Models\Course;
+use App\Models\Onelink;
 use \Crypt;
+use Session;
 
 class TeacherController extends Controller
 {
@@ -81,4 +85,43 @@ class TeacherController extends Controller
     function teacherDash(){
         return view('teacher_dash');
     }
+
+    function select_course(){
+        $courses = Course::all();
+        return view('teacher_course_select', ['courses'=>$courses]);
+    }
+
+    function selected_course(Request $req){
+        $user_name = Session::get('user')['user'];
+        $result = DB::table('teachers')
+        ->join('logins', 'teachers.email', 'logins.user')
+        ->where('teachers.email', $user_name)
+        ->get();
+
+        $ccodes = Course::where('cname', $req->course)->get();
+        $new = new Onelink;
+        foreach($result as $reg){
+            $new->teacher_id = $reg->fname.' '.$reg->lname;
+        }
+        foreach($ccodes as $code){
+            $new->course_code = $code->ccode;
+        }
+        $new->semister = $req->sem.','.$req->year;
+        $new->course_name = $req->course;
+        $new->save();
+        return redirect('select_course_list');
+    }
+
+    function courseList(){
+        $user_name = Session::get('user')['user'];
+        $results = DB::table('teachers')
+        ->join('logins', 'teachers.email', 'logins.user')
+        ->where('teachers.email', $user_name)
+        ->get();
+        foreach($results as $reg){
+            $links = Onelink::where('teacher_id', $reg->fname.' '.$reg->lname)->get();    
+        }
+        return view('select_course_list',['links'=>$links]);
+    }
+
 }

@@ -16,10 +16,16 @@
                             @csrf
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Course Name</label>
                                             <input type="text" class="form-control" name="cname" placeholder="Enter Course Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Course Code</label>
+                                            <input type="text" class="form-control" name="ccode" placeholder="Enter Course Code">
                                         </div>
                                     </div>
                                 </div>

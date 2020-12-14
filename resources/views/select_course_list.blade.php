@@ -1,6 +1,5 @@
-
-@extends('master')
-@section('master')
+@extends('tecmaster')
+@section('content')
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
@@ -10,28 +9,26 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">All Courses List</h3>
+                            <h3 class="card-title">Course List</h3>
                             <a href="/admin_dash"><button class="float-right btn btn-warning">Dashboard</button></a>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered table-hover">
+                            <table id="example2" class="table table-bordered table-hover">
                               <thead>
-                                <tr>
-                                    <th>Course Code</th>
-                                    <th>Course Name</th>
-                                    <th>Department</th>
-                                    <th>Semister</th>
-                                    <th>Delete</th>
-                                </tr>
+                              <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Semister</th>
+                                <th>Students</th>
+                              </tr>
                               </thead>
                               <tbody>
-                                @foreach ($data as $course)
+                                @foreach ($links as $link)
                                 <tr>
-                                    <td>{{$course['ccode']}}</td>
-                                    <td>{{$course['cname']}}</td>
-                                    <td>{{$course['department']}}</td>
-                                    <td>{{$course['semister']}}</td>
-                                    <td><a class="btn btn-block btn-danger" href="delete_course/{{Crypt::encrypt($course['id'])}}">Delete</a></td>
+                                    <td>{{$link['course_code']}}</td>
+                                    <td>{{$link['course_name']}}</td>
+                                    <td>{{$link['semister']}}</td>
+                                    <td><a class="btn btn-block btn-success" href="enroll_course_student/{{Crypt::encrypt($link['id'])}}">Students</a></td>
                                 </tr>
                                 @endforeach
                               </tbody>
