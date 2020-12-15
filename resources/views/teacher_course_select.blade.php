@@ -10,7 +10,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Select Course</h3>
-                            <a href="/admin_dash"><button class="float-right btn btn-warning">Dashboard</button></a> 
+                            <a href="/teacher_dash"><button class="float-right btn btn-warning">Dashboard</button></a> 
                         </div>
                         <form action="/teacher_course_select" method="POST">
                             @csrf

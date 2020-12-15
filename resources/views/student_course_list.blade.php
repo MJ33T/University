@@ -1,4 +1,4 @@
-@extends('tecmaster')
+@extends('stumaster')
 @section('content')
 <div class="content-wrapper">
     <div class="content-header">
@@ -9,8 +9,8 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Course List</h3>
-                            <a href="/teacher_dash"><button class="float-right btn btn-warning">Dashboard</button></a>
+                            <h3 class="card-title">Enrolled Course List</h3>
+                            <a href="/student_dash"><button class="float-right btn btn-warning">Dashboard</button></a>
                         </div>
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
@@ -18,19 +18,20 @@
                               <tr>
                                 <th>Course Code</th>
                                 <th>Course Name</th>
+                                <th>Teacher Name</th>
                                 <th>Semister</th>
-                                <th>Students</th>
                               </tr>
                               </thead>
                               <tbody>
-                                @foreach ($links as $link)
+                                @foreach ($results as $result)
                                 <tr>
-                                    <td>{{$link['course_code']}}</td>
-                                    <td>{{$link['course_name']}}</td>
-                                    <td>{{$link['semister']}}</td>
-                                    <td><a class="btn btn-block btn-success" href="enroll_course_student/{{Crypt::encrypt($link['id'])}}">Students</a></td>
-                                </tr>
-                                @endforeach
+                                    <td>{{$result['course_code']}}</td>
+                                    <td>{{$result['course_name']}}</td>
+                                    <td>{{$result['teacher']}}</td>
+                                    <td>{{$result['semister']}}</td>
+                                </tr>     
+                                @endforeach 
+                                
                               </tbody>
                             </table>
                         </div>
@@ -39,5 +40,6 @@
             </div>
         </div>   
     </div>
-</div>     
+</div> 
+
 @endsection

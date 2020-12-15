@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Login;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Models\Onelink;
+use App\Models\Twolink;
 use \Crypt;
+use Session;
 
 class StudentController extends Controller
 {
@@ -80,5 +84,45 @@ class StudentController extends Controller
 
     function studentDash(){
         return view('student_dash');
+    }
+
+    function selectCourse(){
+        $results = Onelink::all();
+        return view('student_course_select', ['results'=>$results]);
+    }
+
+    function selectedCourse($id){
+        $sid = \Crypt::decrypt($id);
+        $results = Onelink::find($sid);
+
+        $user_name = Session::get('user')['user'];
+        $result = DB::table('students')
+        ->join('logins', 'students.email', 'logins.user')
+        ->where('students.email', $user_name)
+        ->get();
+
+        $new = new Twolink;
+        $new->teacher = $results['teacher_id'];
+        $new->semister = $results['semister'];
+        $new->course_code = $results['course_code'];
+        $new->course_name = $results['course_name'];
+        foreach($result as $reg){
+            $new->student = $reg->sid;
+        }
+        $new->save();
+        return redirect('student_course_select');
+    }
+
+    function courseList(){
+        $user_name = Session::get('user')['user'];
+        $result = DB::table('students')
+        ->join('logins', 'students.email', 'logins.user')
+        ->where('students.email', $user_name)
+        ->get();
+
+        foreach($result as $reg){
+            $results = Twolink::where('student', $reg->sid)->get();
+        }
+        return view('student_course_list', ['results'=>$results]);
     }
 }

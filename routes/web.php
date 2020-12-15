@@ -95,3 +95,8 @@ Route::post('teacher_course_select', [TeacherController::class, 'selected_course
 
 Route::get('select_course_list', [TeacherController::class, 'courseList']);
 
+Route::get('student_course_select', [StudentController::class, 'selectCourse']);
+
+Route::get('student_course_select/{id}', [StudentController::class, 'selectedCourse']);
+
+Route::get('student_course_list', [StudentController::class, 'courseList']);

@@ -41,7 +41,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/admin_dash" class="brand-link">
+    <a href="/student_dash" class="brand-link">
       {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
       <span style="margin-left: 60px" class="brand-text font-weight-light"><strong>UNIVERSITY</strong></span>
     </a>
@@ -75,51 +75,26 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-close">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon ion ion-person-add"></i>
-              <p>
-                Add New
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/add_student" class="nav-link">
-                  <i class="nav-icon ion ion-person-add"></i>
-                  <p>Add New Student</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/add_teacher" class="nav-link">
-                  <i class="nav-icon ion ion-person-add"></i>
-                  <p>Add New Teacher</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-book"></i>
-              <p>Courses<i class="fas fa-angle-left right"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_course" class="nav-link">
-                  <i class="far fa-edit nav-icon"></i>
-                  <p>Add Course</p>
-                </a>
-              </li>
-            </ul>
+            <li class="nav-item">
+              <a href="/student_course_select" class="nav-link active">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Course Enroll</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/student_course_list" class="nav-link active">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Course List</p>
+              </a>
+            </li>
+  
             <li class="nav-item">
               <a href="/logout_student" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>Logout</p>
               </a>
             </li>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
